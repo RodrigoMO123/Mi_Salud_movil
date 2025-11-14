@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descarga Mi Salud Móvil</title>
+    
+    <!-- Carga de Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fuente Inter (estilo moderno) --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Aplicamos la fuente Inter a todo el cuerpo */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Animación para el fondo gradiente */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gradient {
+            background-size: 200% 200%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        /* Animación de aparición (fade in + slide up) */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Clases para aplicar la animación con retraso */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0; /* Empezar invisible */
+        }
+        
+        /* Retrasos para los elementos (efecto escalonado) */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-700 { animation-delay: 0.7s; }
+
+        /* Estilos para el área de contenido expandido con transición */
+        #moreContent {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        #moreContent.expanded {
+            max-height: 2000px; /* Suficientemente grande para el contenido */
+            transition: max-height 0.6s ease-in;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4 animated-gradient bg-gradient-to-br from-slate-900 via-gray-900 to-blue-900">
+
+    <!-- Tarjeta Principal de la App --><div class="w-full max-w-md bg-black/20 backdrop-blur-lg rounded-2xl shadow-xl overflow-hidden animate-fade-in-up">
+        
+        <!-- Cabecera de la App --><header class="p-6 flex items-center space-x-4">
+            <!-- Icono de la App --><div class="w-20 h-20 bg-white rounded-xl flex-shrink-0 flex items-center justify-center shadow-lg animate-fade-in-up delay-100 p-2">
+                <!-- RUTA CORREGIDA: Asumiendo que el logo se llama 'app_logo.png' dentro de la carpeta 'img' --><img src="img/app_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/80x80/2563eb/ffffff?text=Logo'" alt="Logo de Mi Salud Móvil" class="rounded-lg w-full h-full object-contain">
+            </div>
+            <div class="animate-fade-in-up delay-200">
+                <h1 class="text-3xl font-bold text-white">Mi Salud Móvil</h1>
+                <p class="text-blue-200">Tu Compañía</p>
+            </div>
+        </header>
+
+        <!-- Estadísticas (Rating y Descargas) --><section class="flex justify-around bg-black/10 p-4 border-y border-white/10">
+            <div class="text-center animate-fade-in-up delay-300">
+                <!-- CAMBIO A ESTRELLA + SIGNO DE INTERROGACIÓN --><div class="text-2xl font-bold flex items-center justify-center space-x-1">
+                    <span class="text-yellow-400">★</span>
+                    <span class="text-gray-400 font-extralight">?</span>
+                </div>
+                <div class="text-xs text-gray-300">En Pruebas</div>
+            </div>
+            <div class="text-center animate-fade-in-up delay-400">
+                <div class="text-2xl font-bold">8</div>
+                <div class="text-xs text-gray-300">Descargas</div>
+            </div>
+            <!-- Se elimina la sección de "E" para clasificación por edad --></section>
+
+        <!-- Descripción --><section class="p-6 text-gray-200 animate-fade-in-up delay-500">
+            <h2 class="text-xl font-semibold mb-2">Acerca de esta app</h2>
+            <p id="shortDescription" class="text-sm leading-relaxed mb-4">
+                Mi Salud Móvil es la aplicación esencial diseñada para devolverte el control total de tu historial médico y el de tu familia. Olvídate de la frustración de buscar papeles, de la información fragmentada o de no tener tus datos vitales cuando más los necesitas.
+                Transformamos tus exámenes, recetas y diagnósticos en papel en un historial digital portable y accesible, incluso sin conexión a internet. Es la solución perfecta para pacientes, tutores y profesionales de la salud.
+            </p>
+
+            <!-- Contenido que se despliega con el botón -->
+            <div id="moreContent">
+                <h3 class="text-lg font-bold text-white mt-4 mb-2">Funcionalidades Clave</h3>
+                <ul class="space-y-4">
+                    <!-- Digitalización y Organización -->
+                    <li>
+                        <strong class="text-blue-300">💾 Digitalización y Organización Inteligente</strong>
+                        <ul class="list-disc list-inside ml-4 text-xs mt-1 space-y-1">
+                            <li><strong>Escaneo Inteligente (OCR):</strong> Usa la cámara de tu teléfono para escanear y digitalizar al instante cualquier documento médico físico.</li>
+                            <li><strong>Organización Automática:</strong> Clasificamos y agrupamos tus documentos por fecha, tipo (Laboratorio, Receta, etc.) y centro médico, creando un historial limpio y estructurado.</li>
+                            <li><strong>Modo Offline Garantizado:</strong> Accede a todos tus documentos y datos vitales en cualquier momento, sin depender de la conectividad (fundamental en zonas con cobertura limitada).</li>
+                        </ul>
+                    </li>
+                    <!-- Emergencia y Acceso Rápido -->
+                    <li>
+                        <strong class="text-blue-300">🚨 Emergencia y Acceso Rápido</strong>
+                        <ul class="list-disc list-inside ml-4 text-xs mt-1 space-y-1">
+                            <li><strong>Tarjeta Roja de Emergencia:</strong> Accede con un solo toque a tus datos vitales (Alergias, Grupo Sanguíneo y Condiciones Crónicas).</li>
+                            <li><strong>Acceso para Terceros:</strong> Genera un Código QR o acceso por DNI para que un médico o rescatista pueda visualizar tu información crítica inmediatamente, incluso con el teléfono bloqueado.</li>
+                        </ul>
+                    </li>
+                    <!-- Portabilidad y Control de Privacidad -->
+                    <li>
+                        <strong class="text-blue-300">🤝 Portabilidad y Control de Privacidad</strong>
+                        <ul class="list-disc list-inside ml-4 text-xs mt-1 space-y-1">
+                            <li><strong>Compartición Segura:</strong> Comparte tu historial completo con tu médico o clínica a través de un Enlace Temporal o Código QR, con la opción de definir la vigencia del acceso (ej. solo 24 horas).</li>
+                            <li><strong>Gestión Familiar:</strong> Administra los perfiles de salud de tus dependientes (hijos, padres mayores) desde una sola cuenta, definiendo los permisos de acceso para otros cuidadores.</li>
+                            <li><strong>Resúmenes por IA (Asistencia):</strong> Obtén una interpretación simple y en lenguaje claro de tus resultados médicos para mejorar tu comprensión y evitar la confusión de la jerga técnica.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Botón de Mostrar Más -->
+            <button id="toggleButton" class="text-blue-400 font-semibold text-sm mt-3 hover:text-blue-300 transition duration-200 flex items-center">
+                Mostrar Más
+                <svg id="arrowIcon" class="w-4 h-4 ml-1 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+        </section>
+
+        <!-- Capturas de Pantalla (Placeholders) --><section class="px-6 animate-fade-in-up delay-700">
+            <h3 class="text-lg font-semibold mb-3">Capturas de Pantalla</h3>
+            <div class="grid grid-cols-3 gap-3">
+                <!-- RUTAS CORREGIDAS: Asumiendo que se llaman 'screemX.png' dentro de la carpeta 'img' --><img src="img/screem1.png" onerror="this.onerror=null;this.src='https://placehold.co/400x600/2563eb/ffffff?text=Screenshot+1'" alt="Captura de pantalla 1" class="rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+                <img src="img/screem2.png" onerror="this.onerror=null;this.src='https://placehold.co/400x600/2563eb/ffffff?text=Screenshot+2'" alt="Captura de pantalla 2" class="rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+                <img src="img/screem3.png" onerror="this.onerror=null;this.src='https://placehold.co/400x600/2563eb/ffffff?text=Screenshot+3'" alt="Captura de pantalla 3" class="rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+            </div>
+        </section>
+
+        <!-- Mensaje de Cierre Personalizado (Nuevo) -->
+        <section class="px-6 py-4 text-center text-gray-300 animate-fade-in-up delay-700">
+            <h4 class="text-xl font-bold text-blue-300 mb-1">¡Descarga Mi Salud Móvil!</h4>
+            <p class="text-sm">Toma el control de tu salud digital hoy. Organiza, protege y lleva contigo la información más importante de tu vida.</p>
+            <p class="text-xs font-semibold mt-1">Mi Salud Móvil. Tu historial, tu control.</p>
+        </section>
+
+        <!-- Botón de Descarga --><footer class="p-6 mt-2">
+            <!-- RUTA DE DESCARGA ACTUALIZADA CON EL ENLACE DE DRIVE -->
+            <a  id="downloadButton"
+                href="https://drive.usercontent.google.com/download?id=1_tuGjskVwiGNbhkiO_QzmcjcKGPaT2jy&export=download&authuser=0" 
+                class="block w-full bg-blue-600 text-white text-center py-4 rounded-full text-lg font-bold shadow-lg transition-all duration-300 hover:bg-blue-500 hover:shadow-2xl hover:scale-105 transform animate-fade-in-up delay-700">
+                <span id="buttonText">Descargar APK</span>
+            </a>
+            <p id="downloadMessage" class="text-center text-sm text-blue-300 mt-3 h-4"></p>
+        </footer>
+
+    </div>
+
+    <script>
+        const downloadButton = document.getElementById('downloadButton');
+        const buttonText = document.getElementById('buttonText');
+        const downloadMessage = document.getElementById('downloadMessage');
+        const toggleButton = document.getElementById('toggleButton');
+        const moreContent = document.getElementById('moreContent');
+        const arrowIcon = document.getElementById('arrowIcon');
+
+        // Lógica del botón Mostrar Más / Mostrar Menos
+        toggleButton.addEventListener('click', () => {
+            const isExpanded = moreContent.classList.toggle('expanded');
+            if (isExpanded) {
+                // Rota la flecha 180 grados y cambia el texto a "Mostrar Menos"
+                toggleButton.innerHTML = 'Mostrar Menos <svg id="arrowIcon" class="w-4 h-4 ml-1 transform rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>';
+            } else {
+                // Restaura la flecha a su posición original y cambia el texto a "Mostrar Más"
+                toggleButton.innerHTML = 'Mostrar Más <svg id="arrowIcon" class="w-4 h-4 ml-1 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>';
+            }
+        });
+
+
+        // Lógica del botón de descarga
+        downloadButton.addEventListener('click', (e) => {
+            // Ya que se proporcionó un enlace real, no usamos el mensaje de placeholder.
+            // Si el enlace de Drive funciona, la descarga comenzará automáticamente.
+            
+            // Simulación de acción de descarga
+            buttonText.textContent = 'Descargando...';
+            downloadMessage.textContent = '¡Tu descarga comenzará en breve!';
+
+            // Restaura el botón después de unos segundos
+            setTimeout(() => {
+                buttonText.textContent = 'Descargar APK';
+                downloadMessage.textContent = '';
+            }, 5000);
+        });
+    </script>
+
+</body>
+</html>

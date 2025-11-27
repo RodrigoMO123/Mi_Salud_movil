@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-900 h-screen flex flex-col items-center justify-center text-center p-4">
+    
+    <h1 class="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 mb-8 animate-bounce tracking-tighter">
+        RESPETA EL<br>FLOW MAMI
+    </h1>
+
+    <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+        <div class="relative rounded-lg overflow-hidden border-2 border-white/10">
+            <img src="img/morty.png" 
+                 onerror="this.onerror=null;this.src='https://placehold.co/600x600/1e1e1e/purple?text=Pon+tu+imagen+aqui\nimg/morty.png'" 
+                 alt="Respeta el flow" 
+                 class="max-w-full h-auto max-h-[60vh] object-cover">
+        </div>
+    </div>
+
+    <a href="main.html" class="mt-8 text-gray-400 hover:text-white transition-colors underline">Volver</a>
+
+</body>
+</html>
